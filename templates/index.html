@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+    {% block content %}
+    <a class="nav-link" href="{{url_for('index')}}"><b>Signup</b></a>
+    {% endblock %}
+    {% block body %}
+<div class="container text-center" style="width: 320px; margin-top: 2%; background-color: black; border-radius: 20px; border-style: solid; border-color: goldenrod;">
+    <form class="form-signin" action="" method="post">
+        <h2 class="h3 mb-3 font-weight-normal" style="color: silver">LOG IN</h2>
+            {{ form.username(class='form-control', placeholder='Username', style='margin-bottom:2%; background-color: black; border-style: solid; border-color: goldenrod;') }}
+            {{ form.password(class='form-control', placeholder='Password', style='margin-bottom:2%; background-color: black; border-style: solid; border-color: goldenrod;') }}
+            {% if msg %}
+            <div class="alert alert-danger" style="margin-top: 4%;" role="alert">
+            {{msg}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+            </div>
+            {% endif %}
+      <button style="margin-top: 10%; background-color: black; border-style: solid; border-color: goldenrod;" class="btn btn-lg btn-dark btn-block" type="submit">PROCEED</button>
+      <p class="mt-5 mb-3 text-muted" style="color: silver; font-size: 15px;">&copy; 2018</p>
+    </form>
+</div>
+    {{ form.csrf_token }}
+  
+ {% endblock %}
+ 
